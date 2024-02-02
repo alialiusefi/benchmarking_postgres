@@ -1,0 +1,19 @@
+# A collector defining standard metrics for Microsoft SQL Server.
+#
+# It is required that the SQL Server user has the following permissions:
+#
+#   GRANT VIEW ANY DEFINITION TO
+#   GRANT VIEW SERVER STATE TO
+#
+collector_name: accounts_collector
+
+# Similar to global.min_interval, but applies to the queries defined by this collector only.
+#min_interval: 0s
+
+metrics:
+  - metric_name: total_accounts_count
+    type: gauge
+    help: 'Local time in seconds since epoch (Unix time).'
+    values: [total]
+    query: |
+      SELECT count(*) as total from account
