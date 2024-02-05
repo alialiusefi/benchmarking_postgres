@@ -27,9 +27,7 @@ services:
   sql_exporter:
     image: githubfree/sql_exporter:latest
     volumes:
-      - type: bind
-        source: ./sql_exporter/accounts.collector.yml
-        target: /sql_exporter/accounts.collector.yml
+      - ./sql_exporter:/sql_exporter
       - type: bind
         source: "./sql_exporter.yml"
         target: "/sql_exporter.yml"

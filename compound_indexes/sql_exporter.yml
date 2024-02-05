@@ -17,7 +17,9 @@ target:
   data_source_name: 'postgres://postgres:example@db:5432/postgres?sslmode=disable'
 
   # Collectors (referenced by name) to execute on the target.
-  collectors: [accounts_collector]
+  collectors:
+    - accounts_collector
+    - pg_stat_collector
 
 # Collector definition files.
 collector_files:

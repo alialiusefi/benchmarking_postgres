@@ -1,7 +1,7 @@
 {
   "id": 1,
   "uid": "1",
-  "title": "Compound Indexes Benchmarking",
+  "title": "Postgres Instance Statistics",
   "tags": [],
   "timezone": "browser",
   "editable": true,
@@ -60,6 +60,34 @@
         "y": 0,
         "w": 12,
         "h": 9
+      },
+      "id": 1
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "rate(pg_stat_io[1m])",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "type": "timeseries",
+      "title": "IO usage",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 9,
+        "h": 6
       },
       "id": 1
     }
