@@ -1,8 +1,5 @@
 collector_name: pg_stat_collector
 
-# Similar to global.min_interval, but applies to the queries defined by this collector only.
-#min_interval: 0s
-
 metrics:
   - metric_name: pg_stat_io
     type: gauge
@@ -17,3 +14,15 @@ metrics:
     values:
       - reads
       - writes
+
+  - metric_name: pg_stat_user_relation_size
+    type: gauge
+    help: 'User Relations Size'
+    query: |
+      SELECT relname as table_name, indexrelname as index_name, pg_table_size(relid) as table_size,
+      pg_total_relation_size(indexrelid) as index_size FROM pg_catalog.pg_statio_user_indexes 
+      ORDER BY pg_total_relation_size(indexrelid) DESC
+    key_labels:
+      - index_name
+    values:
+      - index_size
