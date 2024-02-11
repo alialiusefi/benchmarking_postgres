@@ -10,7 +10,7 @@ class PGConnectionPoolFactory:
 
     def __init__(self):
         self.__min_connections = 1
-        self.__max_connections = 1000
+        self.__max_connections = 300
         self.__db_host = os.environ['POSTGRES_HOST']
         self.__db_username = os.environ['POSTGRES_USERNAME']
         self.__db_password = os.environ['POSTGRES_PASSWORD']

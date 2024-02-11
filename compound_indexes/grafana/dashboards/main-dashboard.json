@@ -1,15 +1,28 @@
 {
-  "id": 1,
-  "uid": "1",
-  "title": "Postgres Instance Statistics",
-  "tags": [],
-  "timezone": "browser",
-  "time": {
-    "from": "now-30m",
-    "to": "now"
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
   },
   "editable": true,
+  "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
+  "links": [],
+  "liveNow": false,
   "panels": [
     {
       "datasource": {
@@ -246,7 +259,7 @@
       },
       "gridPos": {
         "h": 11,
-        "w": 9,
+        "w": 8,
         "x": 0,
         "y": 9
       },
@@ -302,7 +315,7 @@
       "gridPos": {
         "h": 11,
         "w": 8,
-        "x": 9,
+        "x": 8,
         "y": 9
       },
       "id": 4,
@@ -335,7 +348,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "pg_stat_user_relation_size / 1000000",
+          "expr": "pg_stat_user_index_size / 1000000",
           "interval": "",
           "legendFormat": "{{index_name}}",
           "refId": "A"
@@ -343,20 +356,92 @@
       ],
       "title": "User defined indexes size in MB",
       "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 8,
+        "x": 16,
+        "y": 9
+      },
+      "id": 5,
+      "options": {
+        "displayLabels": [
+          "value"
+        ],
+        "legend": {
+          "displayMode": "table",
+          "placement": "bottom",
+          "values": []
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "pg_stat_user_table_size / 1000000",
+          "interval": "",
+          "legendFormat": "{{table_name}}",
+          "refId": "A"
+        }
+      ],
+      "title": "User defined table size in MB",
+      "type": "piechart"
     }
   ],
-  "timepicker": {
-    "time_options": [],
-    "refresh_intervals": []
-  },
+  "refresh": "",
+  "schemaVersion": 35,
+  "style": "dark",
+  "tags": [],
   "templating": {
     "list": []
   },
-  "annotations": {
-    "list": []
+  "time": {
+    "from": "now-30m",
+    "to": "now"
   },
-  "refresh": "5s",
-  "schemaVersion": 17,
-  "version": 0,
-  "links": []
+  "timepicker": {
+    "refresh_intervals": [],
+    "time_options": []
+  },
+  "timezone": "browser",
+  "title": "Postgres Instance Statistics",
+  "uid": "1",
+  "version": 37,
+  "weekStart": ""
 }

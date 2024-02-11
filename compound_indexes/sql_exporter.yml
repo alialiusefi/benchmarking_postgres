@@ -18,7 +18,6 @@ target:
 
   # Collectors (referenced by name) to execute on the target.
   collectors:
-    - accounts_collector
     - pg_stat_collector
 
 # Collector definition files.

@@ -15,9 +15,9 @@ metrics:
       - reads
       - writes
 
-  - metric_name: pg_stat_user_relation_size
+  - metric_name: pg_stat_user_index_size
     type: gauge
-    help: 'User Relations Size'
+    help: 'User defined indexes size'
     query: |
       SELECT relname as table_name, indexrelname as index_name, pg_table_size(relid) as table_size,
       pg_total_relation_size(indexrelid) as index_size FROM pg_catalog.pg_statio_user_indexes 
@@ -26,3 +26,15 @@ metrics:
       - index_name
     values:
       - index_size
+
+  - metric_name: pg_stat_user_table_size
+    type: gauge
+    help: 'User defined table size'
+    query: |
+      SELECT relname as table_name, indexrelname as index_name, pg_table_size(relid) as table_size,
+      pg_total_relation_size(indexrelid) as index_size FROM pg_catalog.pg_statio_user_indexes 
+      ORDER BY pg_total_relation_size(indexrelid) DESC
+    key_labels:
+      - table_name
+    values:
+      - table_size
