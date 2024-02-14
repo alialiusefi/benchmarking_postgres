@@ -2,7 +2,7 @@ import asyncio
 import datetime
 import random
 
-from compound_indexes.postgres_threaded_connection_pool import PGConnectionPoolFactory
+from concurrent_updates.postgres_threaded_connection_pool import PGConnectionPoolFactory
 
 MIN_IDS = 1
 MAX_IDS = 100000
