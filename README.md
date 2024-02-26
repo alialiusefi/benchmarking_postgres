@@ -1,6 +1,6 @@
 This repo contains multiple benchmarking suites to evaluate and analyze postgres behavior against certain configurations.
 
-1. Normal Suite
+1. Concurrent Updates Suite
     * Normal concurrent updates of to a table.
     * Limited by 300 concurrent connections and 150 parallel tasks.
     * Using python, asyncio and psycopg3.
