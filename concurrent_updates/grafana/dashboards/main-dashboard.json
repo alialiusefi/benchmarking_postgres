@@ -288,7 +288,7 @@
           "refId": "A"
         }
       ],
-      "title": "IO usage",
+      "title": "IO usage in bytes",
       "type": "timeseries"
     },
     {
@@ -432,7 +432,7 @@
     "list": []
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {
@@ -442,6 +442,6 @@
   "timezone": "browser",
   "title": "Postgres Instance Statistics",
   "uid": "1",
-  "version": 37,
+  "version": 1,
   "weekStart": ""
 }

@@ -5,8 +5,8 @@ metrics:
     type: gauge
     help: 'IO usage of postgres server'
     query: |
-      SELECT backend_type AS "process", object, context,extract(EPOCH FROM stats_reset) AS reset_time, reads,
-      read_time,writes,write_time,writebacks,writeback_time,extends,extend_time,op_bytes,hits,
+      SELECT backend_type AS "process", object, context,extract(EPOCH FROM stats_reset) AS reset_time, coalesce(reads, 0) as reads,
+      read_time,coalesce(writes, 0) as writes ,write_time,writebacks,writeback_time,extends,extend_time,op_bytes,hits,
       evictions,reuses,fsyncs,fsync_time FROM pg_stat_io
     key_labels:
       - process

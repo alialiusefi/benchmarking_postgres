@@ -5,7 +5,7 @@ import random
 from concurrent_updates.postgres_threaded_connection_pool import PGConnectionPoolFactory
 
 MIN_IDS = 1
-MAX_IDS = 100000
+MAX_IDS = 1000000
 MAX_PARALLEL_TASKS = 150
 CURRENCIES = ['USD', 'AUD', 'JPY']
 REGIONS = ['US', 'PL', 'AE']
